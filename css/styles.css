@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio / App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- 1. Header con logo y nav con al menos 3 enlaces -->
+    <header>
+        <div class="logo">NIKOL Y YERAL</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- 2. Main que envuelve el contenido principal -->
+    <main>
+        <!-- 3. Section Hero (Título grande, subtítulo y un botón) -->
+        <section id="inicio" class="hero">
+            <h1>Bienvenido a mi Portafolio</h1>
+            <p>Desarrollador Web Profesional</p>
+            <a href="#proyectos" class="btn">Ver Proyectos</a>
+        </section>
+
+        <!-- 4. Section proyectos con Grid y al menos 3 article -->
+        <section id="proyectos">
+            <h2>Mis Proyectos</h2>
+            <div class="grid-proyectos">
+                <article>
+                    <img src="img/proyecto1.jpg" alt="Proyecto 1">
+                    <h3>Proyecto 1</h3>
+                    <p>Servicio web eficiente que convierte enlaces largos en URLs cortas y personalizadas, incluyendo un panel analítico básico de clics y redirecciones.</p>
+                </article>
+                <article>
+                    <img src="img/proyecto2.jpg" alt="Proyecto 2">
+                    <h3>Proyecto 2</h3>
+                    <p>Aplicación de mensajería instantánea desarrollada con WebSockets, permitiendo salas de chat públicas y privadas con cifrado básico.</p>
+                </article>
+                <article>
+                    <img src="img/proyecto3.jpg" alt="Proyecto 3">
+                    <h3>Proyecto 3</h3>
+                    <p>Panel interactivo con gráficos dinámicos para visualizar ingresos, gastos mensuales y categorización de presupuestos en tiempo real.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+    body.tema-oscuro {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Modifica también las tarjetas para que resalten en el fondo negro */
+body.tema-oscuro .card {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+}
+</body>
+</html>
