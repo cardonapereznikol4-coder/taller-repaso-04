@@ -3,55 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio / App</title>
+    <title>Portafolio de Nikol y Yeral</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- 1. Header con logo y nav con al menos 3 enlaces -->
-    <header>
-        <div class="logo">NIKOL Y YERAL</div>
-        <nav>
+
+    <!-- Menú de navegación fijo y ordenado -->
+    <header class="navbar">
+        <div class="logo">✨ Nikol & Yeral</div>
+        <nav class="nav-links">
             <a href="#inicio">Inicio</a>
             <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
-            <div class="controles-usuario">
-    <button id="btn-toggle-tema" class="btn-tema">🌙 Cambiar Tema</button>
-</div>
         </nav>
+        <button id="btn-toggle-tema">🌙 Modo Oscuro</button>
     </header>
 
-    <!-- 2. Main que envuelve el contenido principal -->
     <main>
-        <!-- 3. Section Hero (Título grande, subtítulo y un botón) -->
-        <section id="inicio" class="hero">
-            <h1>Bienvenido a mi Portafolio</h1>
-            <p id="saludo-tiempo-real" class="texto-resaltado"></p>
-            <p>Desarrollador Web Profesional</p>
-            <a href="#proyectos" class="btn">Ver Proyectos</a>
+        <!-- Banner / Sección de Inicio -->
+        <section id="inicio" class="banner-hero">
+            <div class="banner-contenido">
+                <span class="badge-creativo">Portafolio Profesional</span>
+                <h1 id="saludo-tiempo-real">¡Hola!</h1>
+                <p>Somos <strong>Nikol y Yeral</strong>. Fusionamos diseño, código y pasión para crear proyectos web increíbles.</p>
+            </div>
         </section>
 
-        <!-- 4. Section proyectos con Grid y al menos 3 article -->
-        <section id="proyectos">
-            <h2>Mis Proyectos</h2>
-            <div class="grid-proyectos">
-                <article>
-                    <img src="img/proyecto1.jpg" alt="Proyecto 1">
-                    <h3>Proyecto 1</h3>
-                    <p>Servicio web eficiente que convierte enlaces largos en URLs cortas y personalizadas, incluyendo un panel analítico básico de clics y redirecciones.</p>
-                </article>
-                <article>
-                    <img src="img/proyecto2.jpg" alt="Proyecto 2">
-                    <h3>Proyecto 2</h3>
-                    <p>Aplicación de mensajería instantánea desarrollada con WebSockets, permitiendo salas de chat públicas y privadas con cifrado básico.</p>
-                </article>
-                <article>
-                    <img src="img/proyecto3.jpg" alt="Proyecto 3">
-                    <h3>Proyecto 3</h3>
-                    <p>Panel interactivo con gráficos dinámicos para visualizar ingresos, gastos mensuales y categorización de presupuestos en tiempo real.</p>
-                </article>
+        <!-- Sección de Proyectos en Cartas -->
+        <section id="proyectos" class="proyectos">
+            <div class="seccion-titulo">
+                <h2>Nuestros Proyectos</h2>
+                <p>Explora algunos de nuestros trabajos más destacados</p>
+            </div>
+            
+            <div class="contenedor-cartas">
+                <div class="carta">
+                    <div class="contenedor-imagen">
+                        <img src="img/proyecto1.jpg" alt="Proyecto 1">
+                    </div>
+                    <div class="contenido-carta">
+                        <h3>Plataforma Interactiva</h3>
+                        <p>Desarrollo de interfaces dinámicas enfocadas en la experiencia de usuario y rendimiento óptimo.</p>
+                    </div>
+                </div>
+
+                <div class="carta">
+                    <div class="contenedor-imagen">
+                        <img src="img/proyecto2.jpg" alt="Proyecto 2">
+                    </div>
+                    <div class="contenido-carta">
+                        <h3>Aplicación Web Creativa</h3>
+                        <p>Solución digital moderna construida con tecnologías web actuales y diseño responsivo.</p>
+                    </div>
+                </div>
+
+                <div class="carta">
+                    <div class="contenedor-imagen">
+                        <img src="img/proyecto3.jpg" alt="Proyecto 3">
+                    </div>
+                   
+                    <div class="contenido-carta">
+                        <h3>Sistema Visual UI/UX</h3>
+                        <p>Implementación de estilos avanzados, animaciones fluidas y compatibilidad total con modo oscuro.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-    <script src="js/app.js" defer></script>
+
+    <script src="js/app.js"></script>
 </body>
 </html>

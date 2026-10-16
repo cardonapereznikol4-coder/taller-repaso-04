@@ -1,63 +1,234 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio / App</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <!-- 1. Header con logo y nav con al menos 3 enlaces -->
-    <header>
-        <div class="logo">NIKOL Y YERAL</div>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
-
-    <!-- 2. Main que envuelve el contenido principal -->
-    <main>
-        <!-- 3. Section Hero (Título grande, subtítulo y un botón) -->
-        <section id="inicio" class="hero">
-            <h1>Bienvenido a mi Portafolio</h1>
-            <p>Desarrollador Web Profesional</p>
-            <a href="#proyectos" class="btn">Ver Proyectos</a>
-        </section>
-
-        <!-- 4. Section proyectos con Grid y al menos 3 article -->
-        <section id="proyectos">
-            <h2>Mis Proyectos</h2>
-            <div class="grid-proyectos">
-                <article>
-                    <img src="img/proyecto1.jpg" alt="Proyecto 1">
-                    <h3>Proyecto 1</h3>
-                    <p>Servicio web eficiente que convierte enlaces largos en URLs cortas y personalizadas, incluyendo un panel analítico básico de clics y redirecciones.</p>
-                </article>
-                <article>
-                    <img src="img/proyecto2.jpg" alt="Proyecto 2">
-                    <h3>Proyecto 2</h3>
-                    <p>Aplicación de mensajería instantánea desarrollada con WebSockets, permitiendo salas de chat públicas y privadas con cifrado básico.</p>
-                </article>
-                <article>
-                    <img src="img/proyecto3.jpg" alt="Proyecto 3">
-                    <h3>Proyecto 3</h3>
-                    <p>Panel interactivo con gráficos dinámicos para visualizar ingresos, gastos mensuales y categorización de presupuestos en tiempo real.</p>
-                </article>
-            </div>
-        </section>
-    </main>
-    body.tema-oscuro {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+/* Variables y colores profesionales */
+:root {
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-bg: #ffffff;
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --nav-bg: rgba(255, 255, 255, 0.9);
 }
 
-/* Modifica también las tarjetas para que resalten en el fondo negro */
-body.tema-oscuro .card {
-    background-color: #2c2c2c;
+body.tema-oscuro {
+    --bg-color: #0b0f19;
+    --text-color: #f8fafc;
+    --card-bg: #131c2e;
+    --primary-color: #6366f1;
+    --primary-hover: #818cf8;
+    --border-color: #1e293b;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --nav-bg: rgba(11, 15, 25, 0.9);
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Menú de navegación fijo, limpio y espaciado */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+#btn-toggle-tema {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+#btn-toggle-tema:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Banner Hero con fondo y texto limpio */
+.banner-hero {
+    position: relative;
+    height: 440px;
+    margin-top: 105px; /* Espacio para que el menú fijo no lo cubra */
+    background: linear-gradient(rgba(11, 15, 25, 0.7), rgba(11, 15, 25, 0.8)), url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 30px;
+    margin-bottom: 60px;
+    box-shadow: var(--shadow-md);
+}
+
+.badge-creativo {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: var(--primary-color);
     color: white;
-    border: 1px solid #444;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
 }
-</body>
-</html>
+
+.banner-contenido h1 {
+    font-size: 2.8rem;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.banner-contenido p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sección Proyectos */
+.proyectos {
+    padding-bottom: 60px;
+}
+
+.seccion-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.seccion-titulo h2 {
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.seccion-titulo p {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Cuadrícula de Cartas */
+.contenedor-cartas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.carta {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.carta:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.contenedor-imagen {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+}
+
+.carta img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.carta:hover img {
+    transform: scale(1.05);
+}
+
+.contenido-carta {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contenido-carta h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.contenido-carta p {
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
